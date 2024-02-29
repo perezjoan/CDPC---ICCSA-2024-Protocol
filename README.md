@@ -1,7 +1,7 @@
 ## emc2 project : working package 2
 Welcome to the code repository of the WP2 of the emc2 project. This repository is maintened by ESPACE laboratory.
 
-[emc2 project](https://emc2-dut.org/)
+[emc2 project](https://emc2-dut.org/)  
 [ESPACE laboratory](https://www.umrespace.org/)
 
 ## Project sections
