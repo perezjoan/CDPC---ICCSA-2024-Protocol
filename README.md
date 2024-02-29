@@ -1,7 +1,8 @@
 ## emc2 project : working package 2
 Welcome to the code repository of the WP2 of the emc2 project. This repository is maintened by ESPACE laboratory.
-[Link to emc2 project](https://emc2-dut.org/)
-[Link to ESPACE laboratory](https://www.umrespace.org/)
+
+[emc2 project](https://emc2-dut.org/)
+[ESPACE laboratory](https://www.umrespace.org/)
 
 ## Project sections
 - **Dwellings - Population - Catchment areas**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas)
