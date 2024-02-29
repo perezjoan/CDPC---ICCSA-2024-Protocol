@@ -18,3 +18,7 @@ Follow these steps to run the algorithms :
 - Navigate to a section
 - Download the required data (listed within the code of each section)
 - Ensure you have installed the dependencies (listed within the code of each section)
+
+## LICENSE
+
+The emc2 project is licensed under the [Creative Commons Zero v1.0 Universal]. See the [LICENSE](https://github.com/perezjoan/emc2-WP2/blob/main/LICENSE) file for details.
