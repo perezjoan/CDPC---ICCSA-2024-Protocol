@@ -21,8 +21,8 @@ The aim of this section is to analyze road continuity, including notable local c
 
 Follow these steps to run the algorithms :
 - Navigate to a section
-- Download the required data (listed within the code of each section)
-- Ensure you have installed the dependencies (listed within the code of each section)
+- Download the required data (link provided in "Packages, local filepaths & parameters" within the code of each section)
+- Ensure you have installed the dependencies (listed as "Packages, local filepaths & parameters" within the code of each section)
 
 ## LICENSE
 
