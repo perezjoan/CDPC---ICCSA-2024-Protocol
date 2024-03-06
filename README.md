@@ -20,9 +20,14 @@ The aim of this section is to analyze road continuity, including notable local c
 ## Installation Steps
 
 Follow these steps to run the algorithms :
+- Install the Anoconda distribution of Python [Link](https://www.anaconda.com/download)
+- Ensure you have installed the following dependencies : geopandas, pyogrio and contextily by running the following commands in the anaconda prompt :    
+      `conda install -c conda-forge geopandas`    
+      `conda install -c conda-forge pyogrio`    
+      `conda install -c conda-forge contextily`    
 - Navigate to a section
-- Download the required data (link provided in "Packages, local filepaths & parameters" within the code of each section)
-- Ensure you have installed the dependencies (listed as "Packages, local filepaths & parameters" within the code of each section)
+- Download the required data or prerequises and set your local paths (link provided in "Packages, local filepaths & parameters" within the code of each section)
+
 
 ## LICENSE
 
