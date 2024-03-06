@@ -11,11 +11,11 @@ This section focuses on evaluating the number of dwellings per inhabited buildin
     0.1 Pre-processing  - Main GeoPackage preparation from selected layers of BD_TOPO and Filosofi    
     0.2 Pre-processing  - Automated subset preparation for a given city    
     1.1 Dwelling estimation - Filter no dwelling buildings    
-    1.2 Dwelling estimation - Evaluate number of dwellings for inhabited buildings with NA values from BD_TOPO    
+    1.2 Dwelling estimation - Evaluate number of dwellings for inhabited buildings with NA values from BD_TOPO
+    1.3 Evaluate number of dwellings for NA buildings with dwellings   
 
 - **Road continuity**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas)  
 The aim of this section is to analyze road continuity, including notable local connectivity averages related to global connectivity averages.
-
 
 ## Installation Steps
 
@@ -27,7 +27,6 @@ Follow these steps to run the algorithms :
       `conda install -c conda-forge contextily`    
 - Navigate to a section
 - Download the required data or prerequises and set your local paths (link provided in "Packages, local filepaths & parameters" within the code of each section)
-
 
 ## LICENSE
 
