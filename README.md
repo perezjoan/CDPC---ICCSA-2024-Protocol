@@ -42,13 +42,13 @@ The light version is divided into four simple steps :
   
   Using the outputs of the Morpheo QGIS plugin ( gpkg with ways + places, Lagesse, 2015), this code produces three new indicators at the morpheo segment level : CONN_LocSum : Total Connexity for each Morpheo road segment ; CONN_LocAvg : Total Connexity Weighted by number of intersecting segments ; CONN_LocRel : Morpheo Connexity Weighted
   
-  *2. morphometry on buildings – Python script*
+  *2. Morphometry on buildings – Python script*
   
-  *3. evaluation of the number of dwellings within inhabited buildings – R Script*
+  *3. Evaluation of the number of dwellings within inhabited buildings – R Script*
   
-  *4. projecting population potential to main streets – R Script*
+  *4. Projecting population potential to main streets – R Script*
   
-  *Appendix. thematic maps – Python script*
+  * Appendix. thematic maps – Python script*
 
 ## Installation Steps
 
