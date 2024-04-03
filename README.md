@@ -26,10 +26,20 @@ This section focuses on evaluating the number of dwellings per inhabited buildin
   Prerequises : data from 0.1
 
     *1.2 Dwelling estimation - Morphometry on buildings*    
-    *1.3 Evaluate number of dwellings for NA buildings with dwellings*   
+    *1.3 Evaluate number of dwellings for NA buildings with dwellings*
 
 - **Road continuity**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas)  
 The aim of this section is to analyze road continuity, including notable local connectivity averages related to global connectivity averages. The work on this section is put on hold.
+
+- **Dwellings - Population - Catchment areas / Light protocol version**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Road%20continuity%20-%20Dwellings%20-%20Population%20-%20Catchment%20area%20(light%20protocol))
+This section is a light protocol version of Dwellings - Population - Catchment areas [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas) As compared to the main version (under developement), the light light version protocol does not implement configurational analysis, spatial lags for the morphometry indicators, test of complete spatial randomness (CSR), zero-truncated Poisson or negative binomial regressions for the dwelling estimations, use of disaggregated census data or network distance for the catchment areas.
+the light version is divided into four simple steps :
+   * (1) the identification of main streets - R Script
+   * (2) morphometry on buildings – Python script
+   * (3) evaluation of the number of dwellings within inhabited buildings – R Script
+   * (4) projecting population potential to main streets – R Script
+   * (Appendix) thematic maps – Python script.
+ The light protocol version is associated with a data sample containing several municipalities, buildings and roads in southern and northern France. The sample can be downloaded on [Zenodo] (xx).
 
 ## Installation Steps
 
