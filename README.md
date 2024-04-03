@@ -45,8 +45,12 @@ The light version is divided into four simple steps :
   This code computes a basic set of morphometric indicators (area, perimeter, elongation, convexity, Floor-Area - FA, Product [1-E].C.S, Product [1-E].S and ) at the building level.
   
   *3. Evaluation of the number of dwellings within inhabited buildings – R Script*
+
+  This script is aimed at estimating the number of dwellings within buildings using a combination of machine learning techniques, specifically classification and regression models, based on building morphometry indicators
   
   *4. Projecting population potential to main streets – R Script*
+
+  This script estimates the population potential within catchment areas of 5/10 and 15 minutes around main axes using euclidean distance (buffers of 400, 800, and 1200 meters around main axes) 
   
   *Appendix. thematic maps – Python script*
 
