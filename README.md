@@ -29,17 +29,22 @@ This section focuses on evaluating the number of dwellings per inhabited buildin
     *1.3 Evaluate number of dwellings for NA buildings with dwellings*
 
 - **Road continuity**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas)  
-The aim of this section is to analyze road continuity, including notable local connectivity averages related to global connectivity averages. The work on this section is put on hold.
+The aim of this section is to analyze road continuity, including notable local connectivity averages related to global connectivity averages. The work on this section is put on hold, but a light version of this protocol has been implemented in the first step of the light protocol discussed below.
 
-- **Dwellings - Population - Catchment areas / Light protocol version**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Road%20continuity%20-%20Dwellings%20-%20Population%20-%20Catchment%20area%20(light%20protocol))
+- **Road continuity - Dwellings - Population - Catchment areas / Light protocol version**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Road%20continuity%20-%20Dwellings%20-%20Population%20-%20Catchment%20area%20(light%20protocol))
 This section is a light protocol version of Dwellings - Population - Catchment areas [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas) As compared to the main version (under developement), the light light version protocol does not implement configurational analysis, spatial lags for the morphometry indicators, test of complete spatial randomness (CSR), zero-truncated Poisson or negative binomial regressions for the dwelling estimations, use of disaggregated census data or network distance for the catchment areas.
-the light version is divided into four simple steps :
+
+The light version is divided into four simple steps :
+  
   *1. The identification of main streets - R Script*
   Using the outputs of the Morpheo QGIS plugin ( gpkg with ways + places, Lagesse, 2015), this code produces three new indicators at the morpheo segment level : CONN_LocSum : Total Connexity for each Morpheo road segment ; CONN_LocAvg : Total Connexity Weighted by number of intersecting segments ; CONN_LocRel : Morpheo Connexity Weighted
   
   *2. morphometry on buildings – Python script*
+  
   *3. evaluation of the number of dwellings within inhabited buildings – R Script*
+  
   *4. projecting population potential to main streets – R Script*
+  
   *Appendix. thematic maps – Python script*
 
 A sample data that contains information on several municipalities, buildings, and roads in both southern and northern France is associated with this section. This sample data can be downloaded from [Zenodo](xx). The sample data enables the execution of all algorithms mentioned above. Additionally, it contains the results of each section, thus allowing to run the algorithms independently.
