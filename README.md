@@ -37,6 +37,7 @@ This section is a light protocol version of Dwellings - Population - Catchment a
 The light version is divided into four simple steps :
   
   *1. The identification of main streets - R Script*
+  
   Using the outputs of the Morpheo QGIS plugin ( gpkg with ways + places, Lagesse, 2015), this code produces three new indicators at the morpheo segment level : CONN_LocSum : Total Connexity for each Morpheo road segment ; CONN_LocAvg : Total Connexity Weighted by number of intersecting segments ; CONN_LocRel : Morpheo Connexity Weighted
   
   *2. morphometry on buildings – Python script*
