@@ -34,11 +34,11 @@ The aim of this section is to analyze road continuity, including notable local c
 - **Dwellings - Population - Catchment areas / Light protocol version**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Road%20continuity%20-%20Dwellings%20-%20Population%20-%20Catchment%20area%20(light%20protocol))
 This section is a light protocol version of Dwellings - Population - Catchment areas [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas) As compared to the main version (under developement), the light light version protocol does not implement configurational analysis, spatial lags for the morphometry indicators, test of complete spatial randomness (CSR), zero-truncated Poisson or negative binomial regressions for the dwelling estimations, use of disaggregated census data or network distance for the catchment areas.
 the light version is divided into four simple steps :
-   * (1) the identification of main streets - R Script
-   * (2) morphometry on buildings – Python script
-   * (3) evaluation of the number of dwellings within inhabited buildings – R Script
-   * (4) projecting population potential to main streets – R Script
-   * (Appendix) thematic maps – Python script.
+  *1. The identification of main streets - R Script*
+  *2. morphometry on buildings – Python script*
+  *3. evaluation of the number of dwellings within inhabited buildings – R Script*
+  *4. projecting population potential to main streets – R Script*
+  *Appendix. thematic maps – Python script*
  The light protocol version is associated with a data sample containing several municipalities, buildings and roads in southern and northern France. The sample can be downloaded on [Zenodo] (xx).
 
 ## Installation Steps
