@@ -44,6 +44,8 @@ The light version is divided into four simple steps :
   
   *2. Morphometry on buildings – Python script*
   
+  This code computes a basic set of morphometric indicators (area, perimeter, elongation, convexity, Floor-Area - FA, Product [1-E].C.S, Product [1-E].S and ) at the building level.
+  
   *3. Evaluation of the number of dwellings within inhabited buildings – R Script*
   
   *4. Projecting population potential to main streets – R Script*
