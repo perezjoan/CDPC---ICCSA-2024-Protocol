@@ -48,7 +48,7 @@ The light version is divided into four simple steps :
   
   *4. Projecting population potential to main streets – R Script*
   
-  * Appendix. thematic maps – Python script*
+  *Appendix. thematic maps – Python script*
 
 ## Installation Steps
 
