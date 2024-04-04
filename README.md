@@ -26,14 +26,37 @@ This section focuses on evaluating the number of dwellings per inhabited buildin
   Prerequises : data from 0.1
 
     *1.2 Dwelling estimation - Morphometry on buildings*    
-    *1.3 Evaluate number of dwellings for NA buildings with dwellings*   
+    *1.3 Evaluate number of dwellings for NA buildings with dwellings*
 
 - **Road continuity**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas)  
-The aim of this section is to analyze road continuity, including notable local connectivity averages related to global connectivity averages. The work on this section is put on hold.
+The aim of this section is to analyze road continuity, including notable local connectivity averages related to global connectivity averages. The work on this section is put on hold, but a light version of this protocol has been implemented in the first step of the light protocol discussed below.
+
+- **Road continuity - Dwellings - Population - Catchment areas / Light protocol version**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Road%20continuity%20-%20Dwellings%20-%20Population%20-%20Catchment%20area%20(light%20protocol))
+This section is a light protocol version of Dwellings - Population - Catchment areas [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas) As compared to the main version (under developement), the light light version protocol does not implement configurational analysis, spatial lags for the morphometry indicators, test of complete spatial randomness (CSR), zero-truncated Poisson or negative binomial regressions for the dwelling estimations, use of disaggregated census data or network distance for the catchment areas.
+A sample data that contains information on several municipalities, buildings, and roads in both southern and northern France is associated with this section. This sample data can be downloaded from [Zenodo](xx). The sample data enables the execution of all algorithms mentioned above. Additionally, it contains the results of each section, thus allowing to run the algorithms independently. 
+The light version is divided into four simple steps :
+  
+  *1. The identification of main streets - R Script*
+  
+  Using the outputs of the Morpheo QGIS plugin ( gpkg with ways + places, Lagesse, 2015), this code produces three new indicators at the morpheo segment level : CONN_LocSum : Total Connexity for each Morpheo road segment ; CONN_LocAvg : Total Connexity Weighted by number of intersecting segments ; CONN_LocRel : Morpheo Connexity Weighted
+  
+  *2. Morphometry on buildings – Python script*
+  
+  This code computes a basic set of morphometric indicators (area, perimeter, elongation, convexity, Floor-Area - FA, Product [1-E].C.S, Product [1-E].S and ) at the building level.
+  
+  *3. Evaluation of the number of dwellings within inhabited buildings – R Script*
+
+  This script is aimed at estimating the number of dwellings within buildings using a combination of machine learning techniques, specifically classification and regression models, based on building morphometry indicators
+  
+  *4. Projecting population potential to main streets – R Script*
+
+  This script estimates the population potential within catchment areas of 5/10 and 15 minutes around main axes using euclidean distance (buffers of 400, 800, and 1200 meters around main axes) 
+  
+  *Appendix. thematic maps – Python script*
 
 ## Installation Steps
 
-Follow these steps to run the algorithms :
+Follow these steps to run the Python algorithms :
 - Install the Anoconda distribution of Python [Link](https://www.anaconda.com/download)
 - Ensure you have installed the following dependencies : geopandas, pyogrio and contextily by running the following commands in the anaconda prompt :    
       `conda install -c conda-forge geopandas`    
@@ -41,6 +64,12 @@ Follow these steps to run the algorithms :
       `conda install -c conda-forge contextily`    
 - Navigate to a section
 - Download the required data or prerequises and set your local paths (link provided in "Packages, local filepaths & parameters" within the code of each section)
+
+To execute the R algorithms, follow these steps:
+- Install R: Download and install the latest version of R from [here](https://cran.r-project.org/bin/windows/base/). If compatibility issues occur, install the [specific version](https://cran.r-project.org/bin/windows/base/old/) of R mentioned in the scripts. You can find this information in each script.
+- Navigate to a section
+- Download the required data or prerequises and set your local paths (link provided in "Packages, local filepaths & parameters" within the code of each section)
+- Install Required Packages: Open the R script and navigate to the "Packages, local filepaths & parameters" section. Install the required packages using the install.packages('package_name') command. If compatibility issues arise, install older versions of the packages mentioned in the script. You can find this information in each script. You may need to use rtools to install older package versions.
 
 ## LICENSE
 
