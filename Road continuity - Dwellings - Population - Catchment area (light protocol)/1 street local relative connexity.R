@@ -2,7 +2,8 @@
 #                                                                              #
 #   1- Connexity locally weighted by global connexity                          # 
 #                                                                              #
-#   http://emc2-dut.org/                                                       #
+#   Project website : http://emc2-dut.org/                                     #
+#   Data sample : XXX                                                          #
 #                                                                              #
 #   Author : PEREZ, J.* (2024)                                                 #
 #   * UMR 7300 ESPACE-CNRS, Université Côte d'Azur, Nice, France.              #
@@ -11,21 +12,19 @@
 #   Note : Using the outputs of the Morpheo QGIS plugin ( gpkg with ways       #
 #   + places, Lagesse, 2015), this code produces three new indicators at the   #
 #   morpheo segment level :                                                    #
-#   CONN_LocSum : Total Connexity for each Morpheo road segment                #
-#   CONN_LocAvg : Total Connexity Ponderated by number of intersecting segments#
-#   CONN_LocRel : Morpheo Connexity ponderated                                 #                                                                  #
-################################################################################
-
-library(sf)
-library(dplyr)
-
-################################################################################
-# box 1 : LAYERS PREPARATION                                                   #
-# WAYS (morpheo road segments)                                                 #
-road <- st_read("DPC_06.gpkg",                                                 #
-                layer = "road_morpheo")                                        #
-# PLACES (morpheo buffers)                                                     #
-buffer <- st_read("DPC_59.gpkg", layer = "buffer_morpheo")                     #
+#   LocSum_CONN : Total Connexity for each Morpheo road segment                #
+#   LocAvg_CONN : Total Connexity Weighted by number of intersecting segments  #
+#   LocRel_CONN : Morpheo Connexity Weighted                                   #
+#                                                                              #
+# Packages, local filepaths & parameters                                       #
+# R version 4.3.2 (2023-10-31 ucrt)                                            #
+library(sf) # v.1.0.14                                                         #
+library(dplyr) # v.1.1.3                                                       #
+#                                                                              #
+# Load ways and places (morpheo)                                               #
+# Load either DPC_06.gpkg or DPC_59.gpkg within ""                             #
+road <- st_read("", layer = "road_morpheo")                                    #
+buffer <- st_read("", layer = "buffer_morpheo")                                #
 ################################################################################
 
 # Remove buffers in dead ends
@@ -68,4 +67,4 @@ road$LocAvg_CONN <- road$LocSum_CONN/road$Len_P
 # Morpheo Connexity ponderated
 road$LocRel_CONN <- road$CONN/road$LocAvg_CONN
 
-st_write(road, "DPC_06.gpkg", layer = "road_CONN")
+# Results are available in the sample data as a layer named "road_CONN"

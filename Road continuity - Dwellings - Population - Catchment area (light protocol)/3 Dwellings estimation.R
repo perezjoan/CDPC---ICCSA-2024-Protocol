@@ -1,25 +1,30 @@
 ################################################################################
 #                                                                              #
-#   3 . Estimation of number of Dwellings                                      #
+#   3 . Estimation of number of dwellings                                      #
 #                                                                              #
-#   http://emc2-dut.org/                                                       #
+#   Project website : http://emc2-dut.org/                                     #
+#   Data sample : XXX                                                          #
 #                                                                              #
 #   Author : PEREZ, J.* (2024)                                                 #
 #   * UMR 7300 ESPACE-CNRS, Université Côte d'Azur, Nice, France.              #
 #   Contact: Joan.PEREZ@univ-cotedazur.fr                                      #
 #                                                                              #
-#   Note : XXXXXXXX                                                            #
-################################################################################
-
-library(sf)
-library(dplyr)
-library(rpart)
-library(MASS)
-library(caret)
-
-################################################################################
+#   Note : This script is aimed at estimating the number of dwellings within   #
+#   buildings using a combination of machine learning techniques, specifically #
+#   classification and regression models, based on building morphometry        #
+#   indicators                                                                 #
+#                                                                              #
+# Packages, local filepaths & parameters                                       #
+# R version 4.3.2 (2023-10-31 ucrt)                                            #
+library(sf) # v.1.0.14                                                         #
+library(dplyr) # v.1.1.3                                                       #
+library(rpart) # v.4.1.21                                                      #
+library(MASS) # v.7.3.60                                                       #
+library(caret) # v.6.0.94                                                      #
+#                                                                              #
 # Load buildings with morphometry indicators                                   #
-building <- st_read("DPC_59.gpkg", layer = "building_morpho")                  #
+# Load either DPC_06.gpkg or DPC_59.gpkg within ""                             #
+building <- st_read("", layer = "building_morpho")                  #
 ################################################################################
 
 ## 3.1 Classification model : evaluate building with/without dwellings for NULL
@@ -42,7 +47,7 @@ building$dwellings_yn <- building$nombre_de_logements
 building$dwellings_yn[building$dwellings_yn != 0] <- 1
 
 # Subset with only ID and morphology indicators for learning
-temp <- building[,c(28:36)]
+temp <- building[,c(28:37)]
 
 # set a seed for reproducibility
 set.seed(1)
@@ -54,6 +59,7 @@ data.test <- temp[-indexes, ]
 
 # Training dataset : predict dwellings_yn based on morphology indicators
 tree <- rpart(dwellings_yn ~ ., data.train, method = "class")
+summary(tree)
 
 # Tree is applied on test dataset
 pred <- predict(tree, data.test, type = "class")
@@ -73,7 +79,7 @@ building <- rbind(building, building_na)
 ## dwellings(dwellings_yn = 1) but NULL values of number of dwellings
 
 temp <- building[building$dwellings_yn != 0,]
-temp <- temp[,c(17,18,28:35)]
+temp <- temp[,c(17,28:36)]
 temp <- temp[complete.cases(temp), ]
 
 # Set up repeated k-fold cross-validation
@@ -89,7 +95,7 @@ step.model$results
 summary(step.model$finalModel)
 
 # Create a linear formula based on selected model
-formula_lin <- nombre_de_logements ~ nombre_d_etages + FA + area + ECS
+formula_lin <- nombre_de_logements ~ FL + FA
 
 # Fit the model
 model <- lm(formula_lin, temp)
@@ -117,4 +123,4 @@ building$dwellings_estimate <- ifelse(is.null(building$nombre_de_logements) &
 
 building_geom <- cbind(building_geom, building$dwellings_estimate)
 
-st_write(building_geom, "DPC_59.gpkg", layer = "building_dwellings")
+# Results are available in the sample data as a layer named "building_dwellings"
