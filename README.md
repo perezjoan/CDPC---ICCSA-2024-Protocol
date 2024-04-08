@@ -63,7 +63,7 @@ Follow these steps to run the Python algorithms :
       `conda install -c conda-forge pyogrio`    
       `conda install -c conda-forge contextily`   
       `conda install -c conda-forge momepy`      
-- Navigate to a section
+- Navigate to a section on GitHub
 - Download the required data or prerequises and set your local paths (link provided in "Packages, local filepaths & parameters" within the code of each section)
 
 To execute the R algorithms, follow these steps:
