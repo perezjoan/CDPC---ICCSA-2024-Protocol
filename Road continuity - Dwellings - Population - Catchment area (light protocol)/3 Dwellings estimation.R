@@ -24,7 +24,7 @@ library(caret) # v.6.0.94                                                      #
 #                                                                              #
 # Load buildings with morphometry indicators                                   #
 # Load either DPC_06.gpkg or DPC_59.gpkg within ""                             #
-building <- st_read("", layer = "building_morpho")                  #
+building <- st_read("", layer = "building_morpho")                             #
 ################################################################################
 
 ## 3.1 Classification model : evaluate building with/without dwellings for NULL
@@ -124,3 +124,4 @@ building$dwellings_estimate <- ifelse(is.null(building$nombre_de_logements) &
 building_geom <- cbind(building_geom, building$dwellings_estimate)
 
 # Results are available in the sample data as a layer named "building_dwellings"
+# To save new results : st_write()

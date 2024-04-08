@@ -1,6 +1,6 @@
 ################################################################################
 #                                                                              #
-#   1- Connexity locally weighted by global connexity                          # 
+#   1- Identification of Main Streets in Local Contexts                        # 
 #                                                                              #
 #   Project website : http://emc2-dut.org/                                     #
 #   Data sample : XXX                                                          #
@@ -9,12 +9,12 @@
 #   * UMR 7300 ESPACE-CNRS, Université Côte d'Azur, Nice, France.              #
 #   Contact: Joan.PEREZ@univ-cotedazur.fr                                      #
 #                                                                              #
-#   Note : Using the outputs of the Morpheo QGIS plugin ( gpkg with ways       #
-#   + places, Lagesse, 2015), this code produces three new indicators at the   #
-#   morpheo segment level :                                                    #
-#   LocSum_CONN : Total Connexity for each Morpheo road segment                #
-#   LocAvg_CONN : Total Connexity Weighted by number of intersecting segments  #
-#   LocRel_CONN : Morpheo Connexity Weighted                                   #
+#   Note : Using the outputs of the Morpheo QGIS plugin (gpkg with ways        #
+#   and places, Lagesse, 2015), this code produces three new indicators at     #
+#   the morpheo ways level :                                                   #
+#   CONN_LocSum : Sum of the Connectivity per Ways                             #
+#   CONN_LocAvg : Weighted Average Connectivity                                #
+#   CONN_LocRel : Local Relative Connectivity                                  #
 #                                                                              #
 # Packages, local filepaths & parameters                                       #
 # R version 4.3.2 (2023-10-31 ucrt)                                            #
@@ -31,15 +31,15 @@ buffer <- st_read("", layer = "buffer_morpheo")                                #
 buffer <- buffer[is.na(buffer$END_VTX), ]
 
 # Perform a spatial join between buffer and road, then group by buffer_id 
-# and calculate the sum of connexity (CONN) for each group. Create a temporary
-# dataset (temp)
+# and calculate the sum of connectivity (CONN) for each group. Create a 
+# temporary dataset (temp)
 buffer$buffer_id = 1:nrow(buffer)
 temp <- st_join(buffer, road) %>%
   group_by(buffer_id) %>%
   summarise(LocSum_CONN = sum(CONN, na.rm = TRUE))
 st_geometry(temp) = NULL
 
-# Merge the results back to original buffer dataset
+# Merge the results back to original buffer (Places) dataset
 buffer <- merge(buffer, temp, by = "buffer_id", all.x = TRUE)
 
 # Calculate lengths and sums
@@ -57,14 +57,15 @@ road <- merge(road, lengths, by = "OGC_FID", all.x = TRUE)
 st_geometry(sums) = NULL
 road <- merge(road, sums, by = "OGC_FID", all.x = TRUE)
 
-# Total Connexity (Remove all double counts from buffers intersecting the 
-# segment where the temporary calculus CONN_TOTBUF_TEMP was performed)
+# Total Connectivity (Remove all double counts from buffers intersecting the 
+# ways where the temporary calculus CONN_TOTBUF_TEMP was performed)
 road$LocSum_CONN <- road$CONN_TOTBUF_TEMP-(road$CONN*road$Len_P)
 
-# Total Connexity weighteby number of intersecting segments
+# Total Connectivity weighted by number of intersecting ways
 road$LocAvg_CONN <- road$LocSum_CONN/road$Len_P
 
-# Morpheo Connexity ponderated
+# Local Relative Connectivity
 road$LocRel_CONN <- road$CONN/road$LocAvg_CONN
 
-# Results are available in the sample data as a layer named "road_CONN"
+# Results are available in the sample data as a layer named "road_LocRelCon"
+# To save new results : st_write()

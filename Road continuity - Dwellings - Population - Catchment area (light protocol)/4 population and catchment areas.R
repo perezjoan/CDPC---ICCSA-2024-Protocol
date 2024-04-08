@@ -21,9 +21,9 @@ library(dplyr) # v.1.1.3                                                       #
 #                                                                              #
 # Load results from algorithms 1 and 3                                         #
 # Load either DPC_06.gpkg or DPC_59.gpkg within ""                             #
-road <- st_read("DPC_06.gpkg", layer = "road_CONN")                            #
-building <- st_read("DPC_06.gpkg", layer = "building_dwellings")               #
-boundaries <- st_read("DPC_06.gpkg", layer = "adm_boundaries")                 #
+road <- st_read("", layer = "road_LocRelCon")                                  #
+building <- st_read("", layer = "building_dwellings")                          #
+boundaries <- st_read("", layer = "adm_boundaries")                            #
 ################################################################################
 
 # Select main roads (10th decile from LocRel_CONN) and
@@ -70,8 +70,15 @@ results <- merge(road_subset, sum_400, by = "WAY_ID")
 results <- merge(results, sum_800, by = "WAY_ID")
 results <- merge(results, sum_1200, by = "WAY_ID")
 
+# Fiter small ways
+results = results[results$LENGTH >= 100,]
+# Weighted by length
+results$weighted400 <- results$total_pop_400 / (results$LENGTH / 1000)
+results$weighted800 <- results$total_pop_800 / (results$LENGTH / 1000)
+results$weighted1200 <- results$total_pop_1200 / (results$LENGTH / 1000)
+
 # filter results by administrative boundaries
 results <- results[boundaries,]
 
 # Results are available in the sample data as a layer named "road_pop_results"
-
+# To save new results : st_write()
