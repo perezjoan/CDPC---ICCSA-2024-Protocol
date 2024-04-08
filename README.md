@@ -61,7 +61,8 @@ Follow these steps to run the Python algorithms :
 - Ensure you have installed the following dependencies : geopandas, pyogrio and contextily by running the following commands in the anaconda prompt :    
       `conda install -c conda-forge geopandas`    
       `conda install -c conda-forge pyogrio`    
-      `conda install -c conda-forge contextily`    
+      `conda install -c conda-forge contextily`
+      `conda install -c conda-forge momepy`      
 - Navigate to a section
 - Download the required data or prerequises and set your local paths (link provided in "Packages, local filepaths & parameters" within the code of each section)
 
