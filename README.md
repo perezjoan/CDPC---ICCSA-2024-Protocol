@@ -32,25 +32,25 @@ This section focuses on evaluating the number of dwellings per inhabited buildin
 The aim of this section is to analyze road continuity, including notable local connectivity averages related to global connectivity averages. The work on this section is put on hold, but a light version of this protocol has been implemented in the first step of the light protocol discussed below.
 
 - **Road continuity - Dwellings - Population - Catchment areas / Light protocol version**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Road%20continuity%20-%20Dwellings%20-%20Population%20-%20Catchment%20area%20(light%20protocol))
-This section is a light protocol version of Dwellings - Population - Catchment areas [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas) As compared to the main version (under developement), the light light version protocol does not implement configurational analysis, spatial lags for the morphometry indicators, test of complete spatial randomness (CSR), zero-truncated Poisson or negative binomial regressions for the dwelling estimations, use of disaggregated census data or network distance for the catchment areas.
+This section is a light protocol version of Dwellings - Population - Catchment areas [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas) As compared to the main version (under developement), the light version protocol does not implement configurational analysis, spatial lags for the morphometry indicators, test of complete spatial randomness (CSR), zero-truncated Poisson or negative binomial regressions for the dwelling estimations, use of disaggregated census data or network distance for the catchment areas.
 A sample data that contains information on several municipalities, buildings, and roads in both southern and northern France is associated with this section. This sample data can be downloaded from [Zenodo](xx). The sample data enables the execution of all algorithms mentioned above. Additionally, it contains the results of each section, thus allowing to run the algorithms independently. 
 The light version is divided into four simple steps :
   
-  *1. The identification of main streets - R Script*
+  *1. The identification of main streets in local contexts - R Script*
   
-  Using the outputs of the Morpheo QGIS plugin ( gpkg with ways + places, Lagesse, 2015), this code produces three new indicators at the morpheo segment level : CONN_LocSum : Total Connexity for each Morpheo road segment ; CONN_LocAvg : Total Connexity Weighted by number of intersecting segments ; CONN_LocRel : Morpheo Connexity Weighted
+  Using the outputs of the Morpheo QGIS plugin (gpkg with ways + places, Lagesse, 2015), this code produces three new indicators at the Morpheo segment level: CONN_LocSum: Total Connectivity for the direct neighborhood of each Morpheo way; CONN_LocAvg: Local Average Connectivity; CONN_LocRel : Local Relative Connectivity
   
   *2. Morphometry on buildings – Python script*
   
-  This code computes a basic set of morphometric indicators (area, perimeter, elongation, convexity, Floor-Area - FA, Product [1-E].C.S, Product [1-E].S and ) at the building level.
+  This code computes a basic set of morphometric indicators at the building level : F (number of floors), A (surface area of the building footprint), P (perimeter), E (elongation), C (convexity), FA (floor-area), ECA (elongation-convexity-area), EA (elongation-area) and SW (shared walls).
   
   *3. Evaluation of the number of dwellings within inhabited buildings – R Script*
 
-  This script is aimed at estimating the number of dwellings within buildings using a combination of machine learning techniques, specifically classification and regression models, based on building morphometry indicators
+  This script is aimed at estimating the number of dwellings within buildings using a combination of machine learning techniques, specifically classification and regression models, based on building morphometry indicators.
   
   *4. Projecting population potential to main streets – R Script*
 
-  This script estimates the population potential within catchment areas of 5/10 and 15 minutes around main axes using euclidean distance (buffers of 400, 800, and 1200 meters around main axes) 
+  This script estimates the population potential within catchment areas of 5/10 and 15 minutes around main axes using euclidean distance (buffers of 400, 800, and 1200 meters around main axes). 
   
   *Appendix. thematic maps – Python script*
 
