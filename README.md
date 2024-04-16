@@ -10,13 +10,15 @@ This section focuses on evaluating the number of dwellings per inhabited buildin
 
     *0.1 Pre-processing  - MAIN GeoPackage & SUBSET preparation from selected layers of BD_TOPO and Filosofi*
 
-  This section creates a geopackage for a department in France with the following layers : building, road, administrative boundaries, activity areas (from BD_TOP 3.3) and population by square areas of 200x200 meters (Filosophi 2019). Prerequises : Data from French government (open access - link within the codes)
+  This section creates a geopackage for a department in France with the following layers : building, road, administrative boundaries, activity areas (from BD_TOP 3.3) and population by square areas of 200x200 meters (Filosophi 2019). Prerequises : Data from French government (open access - links within the codes)
 
     *1.0 Dwelling estimation - Morphometry on buildings*    
+
 Morphometry on buildings : handle missing values in building height and number of floors ; generate new indicators for building data : F (number of floors), A (surface area of the building footprint), P (perimeter),
 E (elongation), C (convexity), FA (floor-area), ECA (elongation-convexity-area), EA (elongation-area) and SW (shared walls).
 
   *1.2 Dwelling estimation - Filter no dwelling buildings*
+
 This section filters all the buildings with no dwellings. 7 kinds of buildings are removed : (1) All buildings with no official dwellings associated. (2) light buildings with no official dwellings associated. (3) all specialized buildings other than residential with no official dwellings associated. (4) Buildings under construction (5) Annex buildings with no official dwellings associated (6) Buildings of less than 10 sqrm (7) large buildings (more than 150 sqrm) within specialized areas with NULL values of dwellings.
   Prerequises : data from 0.1
 
