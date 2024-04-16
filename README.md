@@ -6,11 +6,12 @@ Welcome to the code repository of the WP2 of the emc2 project. This repository i
 
 ## Project sections
 - **Dwellings - Population - Catchment areas**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas)  
+
 This section focuses on evaluating the number of dwellings per inhabited building, the number of people per household per dwelling, and determining the potential catchment area (in terms of population/distance) at the segment level (roads). This section is divided into subsections.
 
     *0.1 Pre-processing  - MAIN GeoPackage & SUBSET preparation from selected layers of BD_TOPO and Filosofi*
 
-  This section creates a geopackage for a department in France with the following layers : building, road, administrative boundaries, activity areas (from BD_TOP 3.3) and population by square areas of 200x200 meters (Filosophi 2019). Prerequises : Data from French government (open access - links within the codes)
+This section creates a geopackage for a department in France with the following layers : building, road, administrative boundaries, activity areas (from BD_TOP 3.3) and population by square areas of 200x200 meters (Filosophi 2019). Prerequises : Data from French government (open access - links within the codes)
 
     *1.0 Dwelling estimation - Morphometry on buildings*    
 
