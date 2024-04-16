@@ -23,7 +23,7 @@ E (elongation), C (convexity), FA (floor-area), ECA (elongation-convexity-area),
 This section filters all the buildings with no dwellings. 7 kinds of buildings are removed : (1) All buildings with no official dwellings associated. (2) light buildings with no official dwellings associated. (3) all specialized buildings other than residential with no official dwellings associated. (4) Buildings under construction (5) Annex buildings with no official dwellings associated (6) Buildings of less than 10 sqrm (7) large buildings (more than 150 sqrm) within specialized areas with NULL values of dwellings.
   Prerequises : data from 0.1
 
-    *1.3 Evaluate number of dwellings for NA buildings with dwellings*
+  *1.3 Evaluate number of dwellings for NA buildings with dwellings*
 
 - **Road continuity**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas)  
 The aim of this section is to analyze road continuity, including notable local connectivity averages related to global connectivity averages. The work on this section is put on hold, but a light version of this protocol has been implemented in the first step of the light protocol discussed below.
