@@ -27,7 +27,6 @@ This script performs a series of spatial data processing tasks aimed at preparin
 This script analyzes the spatial distribution of two observed point patterns and compares it to a random distribution of points to determine if there is clustering, dispersion, or randomness in the point pattern. In the context of the EMC2 project, this script is used to compare the distribution of all buildings and buildings with NA values for the number of dwellings to a random distribution of points. The objective is to assess if 
 NA values are more or less randomly distributed than the observed data.
 
-  *1.2 Draft*
 
 - **Road continuity**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas)  
 The aim of this section is to analyze road continuity, including notable local connectivity averages related to global connectivity averages. The work on this section is put on hold, but a light version of this protocol has been implemented in the first step of the light protocol discussed below.
