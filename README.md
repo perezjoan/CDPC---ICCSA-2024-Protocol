@@ -22,6 +22,11 @@ E (elongation), C (convexity), FA (floor-area), ECA (elongation-convexity-area),
 
 This script performs a series of spatial data processing tasks aimed at preparing building data for further analysis. Firstly, it conducts a spatial join between building and activity area datasets, assigning each building a category of activity area based on spatial intersection. Next, it identifies and removes specific indexes from the building dataset to refine the data for the learning phase of the classification model (1.2). These include light buildings, buildings under construction, annex buildings, and buildings with small footprints. Subsequently, additional indexes are identified and removed from the dataset for the estimation of the number of dwellings (1.3). This includes buildings with no dwellings, specialized buildings, and large buildings within specialized areas with null values of dwellings.
 
+  *A.1 Test of Complete Spatial Randomness*
+
+This script analyzes the spatial distribution of two observed point patterns and compares it to a random distribution of points to determine if there is clustering, dispersion, or randomness in the point pattern. In the context of the EMC2 project, this script is used to compare the distribution of all buildings and buildings with NA values for the number of dwellings to a random distribution of points. The objective is to assess if 
+NA values are more or less randomly distributed than the observed data.
+
   *1.2 Draft*
 
 - **Road continuity**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas)  
