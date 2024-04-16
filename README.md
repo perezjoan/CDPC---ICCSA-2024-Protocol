@@ -20,10 +20,9 @@ E (elongation), C (convexity), FA (floor-area), ECA (elongation-convexity-area),
 
   *1.1 Dwelling estimation - Filter no dwelling buildings*
 
-This section filters all the buildings with no dwellings. 7 kinds of buildings are removed : (1) All buildings with no official dwellings associated. (2) light buildings with no official dwellings associated. (3) all specialized buildings other than residential with no official dwellings associated. (4) Buildings under construction (5) Annex buildings with no official dwellings associated (6) Buildings of less than 10 sqrm (7) large buildings (more than 150 sqrm) within specialized areas with NULL values of dwellings.
-  Prerequises : data from 0.1
+This script performs a series of spatial data processing tasks aimed at preparing building data for further analysis. Firstly, it conducts a spatial join between building and activity area datasets, assigning each building a category of activity area based on spatial intersection. Next, it identifies and removes specific indexes from the building dataset to refine the data for the learning phase of the classification model (1.2). These include light buildings, buildings under construction, annex buildings, and buildings with small footprints. Subsequently, additional indexes are identified and removed from the dataset for the estimation of the number of dwellings (1.3). This includes buildings with no dwellings, specialized buildings, and large buildings within specialized areas with null values of dwellings.
 
-  *1.2 Evaluate number of dwellings for NA buildings with dwellings*
+  *1.2 Draft*
 
 - **Road continuity**: [Link to Section](https://github.com/perezjoan/emc2-WP2/tree/main/Dwellings%20-%20Population%20-%20Catchment%20areas)  
 The aim of this section is to analyze road continuity, including notable local connectivity averages related to global connectivity averages. The work on this section is put on hold, but a light version of this protocol has been implemented in the first step of the light protocol discussed below.
