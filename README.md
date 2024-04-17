@@ -9,20 +9,20 @@ Welcome to the code repository of the WP2 of the emc2 project. This repository i
 
 This section focuses on evaluating the number of dwellings per inhabited building, the number of people per household per dwelling, and determining the potential catchment area (in terms of population/distance) at the segment level (roads). This section is divided into subsections.
 
-   *0.1 Pre-processing  - MAIN GeoPackage & SUBSET preparation from selected layers of BD_TOPO and Filosofi*
+   *0.1 Pre-processing  - MAIN GeoPackage & SUBSET preparation - Python*
 
 This section creates a geopackage for a department in France with the following layers : building, road, administrative boundaries, activity areas (from BD_TOP 3.3) and population by square areas of 200x200 meters (Filosophi 2019). Prerequises : Data from French government (open access - links within the codes)
 
-   *1.0 Dwelling estimation - Morphometry on buildings*  
+   *1.0 Dwelling estimation - Morphometry on buildings - Python*  
 
 Morphometry on buildings : handle missing values in building height and number of floors ; generate new indicators for building data : F (number of floors), A (surface area of the building footprint), P (perimeter),
 E (elongation), C (convexity), FA (floor-area), ECA (elongation-convexity-area), EA (elongation-area) and SW (shared walls).
 
-  *1.1 Dwelling estimation - Filter no dwelling buildings*
+  *1.1 Dwelling estimation - Filter no dwelling buildings - Python*
 
 This script performs a series of spatial data processing tasks aimed at preparing building data for further analysis. Firstly, it conducts a spatial join between building and activity area datasets, assigning each building a category of activity area based on spatial intersection. Next, it identifies and removes specific indexes from the building dataset to refine the data for the learning phase of the classification model (1.2). These include light buildings, buildings under construction, annex buildings, and buildings with small footprints. Subsequently, additional indexes are identified and removed from the dataset for the estimation of the number of dwellings (1.3). This includes buildings with no dwellings, specialized buildings, and large buildings within specialized areas with null values of dwellings.
 
-  *A.1 Test of Complete Spatial Randomness*
+  *A.1 Test of Complete Spatial Randomness - Python*
 
 This script analyzes the spatial distribution of two observed point patterns and compares it to a random distribution of points to determine if there is clustering, dispersion, or randomness in the point pattern. In the context of the EMC2 project, this script is used to compare the distribution of all buildings and buildings with NA values for the number of dwellings to a random distribution of points. The objective is to assess if 
 NA values are more or less randomly distributed than the observed data.
