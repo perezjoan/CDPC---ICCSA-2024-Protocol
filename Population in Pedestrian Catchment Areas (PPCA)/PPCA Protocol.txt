@@ -1,0 +1,12 @@
+Environnement PPCA (geemap)
+
+conda create -n PPCA
+conda activate PPCA
+conda install jupyter
+conda install -n base mamba -c conda-forge
+mamba install geemap -c conda-forge
+mamba install geopandas localtileserver -c conda-forge
+
+Environnement ox (osmnx)
+conda create -n ox -c conda-forge --strict-channel-priority osmnx
+conda install jupyter
