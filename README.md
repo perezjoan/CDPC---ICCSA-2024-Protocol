@@ -47,6 +47,8 @@ To execute the R algorithms, follow these steps:
 - Download the required data or prerequises and set your local paths (link provided in "Packages, local filepaths & parameters" within the code of each section)
 - Install Required Packages: Open the R script and navigate to the "Packages, local filepaths & parameters" section. Install the required packages using the install.packages('package_name') command. If compatibility issues arise, install older versions of the packages mentioned in the script. You can find this information in each script. You may need to use rtools to install older package versions.
 
-## LICENSE
+## Acknowledgement 
+This resource was produced within the emc2 project, which is funded by ANR (France), FFG (Austria), MUR (Italy) and Vinnova (Sweden) under the Driving Urban Transition Partnership, which has been co-funded by the European Commission.
 
+## License
 The emc2 project is licensed under the [Attribution-ShareAlike 4.0 International]. See the [LICENSE](https://github.com/perezjoan/CDPC---ICCSA-2024-Protocol?tab=CC-BY-SA-4.0-1-ov-file) file for details.
