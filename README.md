@@ -49,4 +49,4 @@ To execute the R algorithms, follow these steps:
 
 ## LICENSE
 
-The emc2 project is licensed under the [Creative Commons Zero v1.0 Universal]. See the [LICENSE](https://github.com/perezjoan/CDPC---ICCSA-2024-Protocol?tab=CC-BY-SA-4.0-1-ov-file) file for details.
+The emc2 project is licensed under the [Attribution-ShareAlike 4.0 International]. See the [LICENSE](https://github.com/perezjoan/CDPC---ICCSA-2024-Protocol?tab=CC-BY-SA-4.0-1-ov-file) file for details.
