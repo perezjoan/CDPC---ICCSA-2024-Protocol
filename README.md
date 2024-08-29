@@ -1,8 +1,8 @@
 ## Road Continuity - Dwellings - Population - Catchment Areas (CDPC) (ICCSA 2024 Protocol version)
-Light protocol of Road Continuity - Dwellings - Population - Catchment areas developed for the ICCSA 2024 Conference on the data from the French census (BD TOPO®3 - IGN, 2023). This script identifies main streets in local contexts (#1), calculate morphometric indicators on buildings (#2), use the indicators of #2 to evaluate the number of dwellings within inhabited buildings using a decision tree classifier (#3) and projects the population potential to the identified main streets (#4).
+Light protocol of Road Continuity - Dwellings - Population - Catchment areas developed for the ICCSA 2024 Conference on the data from the French census (BD TOPO®3 - IGN, 2023). This script identifies main streets in local contexts (#1), calculate morphometric indicators on buildings (#2), use the indicators of #2 to evaluate the number of dwellings within inhabited buildings using a decision tree classifier (#3) and projects the population potential to the identified main streets (#4). 
+Link to the paper : https://www.springerprofessional.de/en/potential-of-the-15-minute-peripheral-city-identifying-main-stre/27388226 
 
 [emc2 project](https://emc2-dut.org/)  
-[ESPACE laboratory](https://www.umrespace.org/)
 
 - **Sample data**:
 
