@@ -108,20 +108,22 @@ building$prediction_dwellings <- round(predict(model, newdata=building))
 
 # Put all negative predictions to 0 (sparse matrix leads to negative pred)
 building$prediction_dwellings[building$prediction_dwellings < 0] <- 0
+building$prediction_dwellings[is.na(building$prediction_dwellings)] <- 0
 
 # Check if number of dwellings is NULL and pred dwellings is equal to 0,
 # if both conditions are met, assign 0 to dwellings_estimate otherwise
 # test if number of dwellings is NULL and pred dwellings is equal to 1,
 # if both conditions are met, assign prediction_dwellings to dwellings_estimate,
 # otherwise assign nombre_de_logements
-building$dwellings_estimate <- ifelse(is.null(building$nombre_de_logements) &
-                                        building$prediction_dwellings == 0,
-                                      0,ifelse(is.null(building$nombre_de_logements) &
-                                               building$prediction_dwellings == 1,
-                                             building$prediction_dwellings, 
-                                             building$nombre_de_logements))
+building$dwellings_estimate <- ifelse(is.na(building$nombre_de_logements) &
+                                        building$dwellings_yn == 0,
+                                      0,ifelse(is.na(building$nombre_de_logements) &
+                                                 building$dwellings_yn == 1,
+                                               building$prediction_dwellings, 
+                                               building$nombre_de_logements))
 
-building_geom <- cbind(building_geom, building$dwellings_estimate)
+result <- merge(building_geom, building[, c("cleabs", "dwellings_estimate")],
+                by = "cleabs", all.x = TRUE)
 
 # Results are available in the sample data as a layer named "building_dwellings"
 # To save new results : st_write()

@@ -36,10 +36,10 @@ road_subset_b1200 <- st_buffer(road_subset, 1200)
 
 # Calculate population potential per buidling (average household size in France
 # is 1.92 for collective housings, 2.44 for single family homes)
-building$pot_pop <- ifelse(building$building.dwellings_estimate == 1, 
-                           building$building.dwellings_estimate * 2.44,
-                           ifelse(building$building.dwellings_estimate > 0, 
-                                building$building.dwellings_estimate * 1.92, 0))
+building$pot_pop <- ifelse(building$dwellings_estimate == 1, 
+                           building$dwellings_estimate * 2.44,
+                           ifelse(building$dwellings_estimate > 0, 
+                                building$dwellings_estimate * 1.92, 0))
 
 # Centroid of building
 cent <- st_centroid(building)
